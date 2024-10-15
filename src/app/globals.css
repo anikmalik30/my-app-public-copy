@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* scrollbar */
+/* Scrollbar */
+/* * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--background);
+} */
+
+::-webkit-scrollbar {
+  width: 8px;
+  appearance: auto;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000c1;
+  border-radius: 10px;
+  appearance: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b3b3b9c;
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); /* Add a box-shadow for a 3D effect */
+  appearance: auto;
+  transition:
+    background 0.3s,
+    box-shadow 0.3s; /* Add a transition for smooth changes */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff3a;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); /* Increase the box-shadow on hover */
+  appearance: auto;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+  appearance: auto;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+/* cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.cursor-text {
+  font-size: 5px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  display: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  /* cursor: none; */
+  cursor: pointer;
+}
+
+.glow {
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 200px 130px #9ca3af; /* outer cyan */
+}
+
+.cube-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+}
+
+.cube-container-2 {
+  width: 1046px;
+  height: 1046px;
+}
+
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll-horizontal {
+  animation: scroll-horizontal 10s linear infinite;
+}
+
+.rotating-cube-container {
+  position: relative;
+  transform: scale(0.8);
+  top: -10px;
+  right: -10px;
+  animation: webgl-scale-in-fade;
+  margin-right: 50px;
+}
+
+.scrollBody {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; /* Hide horizontal overflow */
+}
+/* components/Loading.css */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000; /* Optional: background color */
+  opacity: 0;
+  animation: fadeIn 1s forwards; /* Fade-in animation */
+}
+
+.loading-video {
+  width: 100%;
+  height: auto;
+  max-width: 200px; /* Adjust as needed */
+  border-radius: 10px; /* Optional: rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: shadow */
+}
+
+.loading-text {
+  margin-top: 20px;
+  color: #cccccc; /* Text color */
+  font-size: 1.5rem; /* Adjust as needed */
+  text-align: center;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

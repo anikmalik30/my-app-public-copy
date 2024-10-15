@@ -1,0 +1,25 @@
+{
+    "cSpell.words": [
+        "@tailwind",
+        "Anik",
+        "anikmalik",
+        "Artboard",
+        "bghero",
+        "clsx",
+        "hookform",
+        "iframe",
+        "lucide",
+        "Malik",
+        "portabletext",
+        "reactcss",
+        "smoothscroll",
+        "splinetool",
+        "stylis",
+        "tailwindcss",
+        "tsparticles",
+        "webgl"
+    ],
+    "css.lint.unknownAtRules": "ignore",
+    "scss.lint.unknownAtRules": "ignore",
+    "less.lint.unknownAtRules": "ignore"
+}
